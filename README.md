@@ -15,8 +15,8 @@ This is an example skills copilot extension, designed to create random data for 
 1. Clone the repository: 
 
 ```
-git clone git@github.com:copilot-extensions/testdatabot.git
-cd testdatabot
+git clone git@github.com:copilot-extensions/skills-example.git
+cd skills-example
 ```
 
 2. Install dependencies:
@@ -90,10 +90,10 @@ Return type: String
 
 Here's some example things:
 
-* `@testdatabot please create a random commit message`
-* `@testdatabot generate a lorem ipsum`
-* `@testdatabot generate a short lorem ipsum with 3 paragraphs`
-* `@testdatabot generate random user data`
+* `@skills-example please create a random commit message`
+* `@skills-example generate a lorem ipsum`
+* `@skills-example generate a short lorem ipsum with 3 paragraphs`
+* `@skills-example generate random user data`
 
 ## Implementation
 
