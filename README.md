@@ -1,4 +1,4 @@
-# Test Data Bot
+# Skills Example
 
 > [!NOTE]
 > To use Copilot Extensions, you must be enrolled in the limited public beta.
