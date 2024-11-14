@@ -1,15 +1,12 @@
 # Skills Example
 
 > [!NOTE]
-> To use Copilot Extensions, you must be enrolled in the limited public beta.
-> 
-> All enrolled users with a GitHub Copilot Individual subscription can use Copilot Extensions.
-> 
-> For enrolled organizations or enterprises with a Copilot Business or Copilot Enterprise subscription, organization owners and enterprise administrators can grant access to Copilot Extensions.
+> Copilot Extensions are in public preview and may be subject to change. Pre-release terms apply.
+> Copilot Extensions require a GitHub Copilot license of any type.
 
 ## Description
 
-This is an example skills copilot extension, designed to create random data for a number of development purposes.  The purpose of this to showcase how an extension can be created using skills
+This is an example Skillset Copilot Extension, designed to create random test and example data for a number of development purposes. The purpose of this to showcase how an extension can be created as a Skillset.
 
 ## Installation:
 1. Clone the repository: 
@@ -43,8 +40,8 @@ go run .
 ## Accessing the Agent in Chat:
 
 1. In the `Copilot` tab of your Application settings (`https://github.com/settings/apps/<app_name>/agent`)
-- Set the app type to "Skill"
-- Add the following skills
+- Set the app type to "Skillset"
+- Specify the following skills
 ```
 Name: random_commit_message
 Inference description: Generates a random commit message
