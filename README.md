@@ -2,7 +2,7 @@
 
 > [!NOTE]
 > Copilot Extensions are in public preview and may be subject to change. Pre-release terms apply.
-> Copilot Extensions require a GitHub Copilot license of any type.
+> You must have a GitHub Copilot license of any type to use Copilot Extensions.
 
 ## Description
 
