@@ -1,4 +1,4 @@
-# Skills Example
+# Skillset Example
 
 > [!NOTE]
 > Copilot Extensions are in public preview and may be subject to change. Pre-release terms apply.
