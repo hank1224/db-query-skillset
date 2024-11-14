@@ -12,8 +12,8 @@ This is an example Skillset Copilot Extension, designed to create random test an
 1. Clone the repository: 
 
 ```
-git clone git@github.com:copilot-extensions/skills-example.git
-cd skills-example
+git clone git@github.com:copilot-extensions/skillset-example.git
+cd skillset-example
 ```
 
 2. Install dependencies:
@@ -87,10 +87,10 @@ Return type: String
 
 Here's some example things:
 
-* `@skills-example please create a random commit message`
-* `@skills-example generate a lorem ipsum`
-* `@skills-example generate a short lorem ipsum with 3 paragraphs`
-* `@skills-example generate random user data`
+* `@skillset-example please create a random commit message`
+* `@skillset-example generate a lorem ipsum`
+* `@skillset-example generate a short lorem ipsum with 3 paragraphs`
+* `@skillset-example generate random user data`
 
 ## Implementation
 
