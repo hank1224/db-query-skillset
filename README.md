@@ -99,3 +99,8 @@ This bot provides a passthrough to a couple of other APIs:
 * For commit messages, https://whatthecommit.com/
 * For Lorem Ipsum, https://loripsum.net/
 * For user data, https://randomuser.me/
+
+## Documentation
+- [Using Copilot Extensions](https://docs.github.com/en/copilot/using-github-copilot/using-extensions-to-integrate-external-tools-with-copilot-chat)
+- [About building Copilot Extensions](https://docs.github.com/en/copilot/building-copilot-extensions/about-building-copilot-extensions)
+- [Set up process](https://docs.github.com/en/copilot/building-copilot-extensions/setting-up-copilot-extensions)
