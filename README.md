@@ -6,7 +6,7 @@
 
 ## Description
 
-This is an example Skillset Copilot Extension, designed to create random test and example data for a number of development purposes. The purpose of this to showcase how an extension can be created as a Skillset.
+This is an example skillset Copilot Extension, designed to create random test and example data for a number of development purposes. The purpose of this to showcase how an extension can be created as a skillset.
 
 ## Installation:
 1. Clone the repository: 
@@ -81,7 +81,7 @@ Return type: String
 3. Ensure your permissions are enabled in `Permissions & events` > 
 - `Account Permissions` > `Copilot Chat` > `Access: Read Only`
 4. Ensure you install your application at (`https://github.com/apps/<app_name>`)
-5. Now if you go to `https://github.com/copilot` you can `@` your agent using the name of your application.
+5. Now if you go to `https://github.com/copilot` you can `@` your skillset extension using the name of your app.
 
 ## What can the bot do?
 
