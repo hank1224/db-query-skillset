@@ -12,7 +12,8 @@ This code sample demonstrates building a Copilot Extension using the skillsets a
 - **Skillsets**: Define up to 5 API endpoints that Copilot can call directly. Copilot handles all AI interactions, prompt engineering, and response formatting.
 - **Agents**: Provide full control over the interaction flow, including custom prompt crafting and specific LLM model selection.
 
-![Architectural comparison between Skillsets and Agents](https://github.com/user-attachments/assets/462a5963-bce9-4a4e-8030-3434aa904f4e)
+![Architectural comparison between Skillsets and Agents](https://github.com/user-attachments/assets/9c5d6489-afb5-47c2-be73-2561d89dfde3)
+
 
 ### When to Choose Skillsets
 Skillsets are ideal when you want to:
