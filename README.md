@@ -6,9 +6,35 @@
 
 ## Description
 
-This is an example skillset Copilot Extension, designed to create random test and example data for a number of development purposes. The purpose of this to showcase how an extension can be created as a skillset.
+This code sample demonstrates building a Copilot Extension using the skillsets approach rather than a traditional agent. This extension is designed to generate random test and example data for a number of development purposes, by calling publicly available APIs.
 
-## Installation:
+### Architectural Model
+- **Skillsets**: Define up to 5 API endpoints that Copilot can call directly. Copilot handles all AI interactions, prompt engineering, and response formatting.
+- **Agents**: Provide full control over the interaction flow, including custom prompt crafting and specific LLM model selection.
+
+![Architectural comparison between Skillsets and Agents](https://github.com/user-attachments/assets/462a5963-bce9-4a4e-8030-3434aa904f4e)
+
+### When to Choose Skillsets
+Skillsets are ideal when you want to:
+- Quickly integrate existing APIs or services without managing AI logic
+- Focus purely on your service's core functionality
+- Maintain consistent Copilot-style interactions without extensive development
+- Get started with minimal infrastructure and setup
+
+Use agents instead if you need:
+- Complex custom interaction flows
+- Specific LLM model control (using LLMs that aren't provided by the Copilot API)
+- Custom prompt crafting
+- Advanced state management
+
+## Example Implementation
+
+This extension showcases the skillset approach by providing three simple endpoints that generate random development data:
+- Random commit messages
+- Lorem ipsum text generation
+- Random user data
+
+## Getting Started
 1. Clone the repository: 
 
 ```
@@ -37,7 +63,7 @@ ngrok http http://localhost:8080
 go run .
 ```
 
-## Accessing the Agent in Chat:
+## Accessing the Extension in Chat:
 
 1. In the `Copilot` tab of your Application settings (`https://github.com/settings/apps/<app_name>/agent`)
 - Set the app type to "Skillset"
