@@ -1,12 +1,68 @@
-# Skillset Example
+# DB Query Copilot Skillset
 
-> [!NOTE]
-> Copilot Extensions are in public preview and may be subject to change. Pre-release terms apply.
-> You must have a GitHub Copilot license of any type to use Copilot Extensions.
+This Copilot Skillset allows you to query data from a specified database and return the results.
 
-## Description
+Sample PG Database: [https://github.com/hank1224/postgres-sample](https://github.com/hank1224/postgres-sample)
 
-This code sample demonstrates building a Copilot Extension using the skillsets approach rather than a traditional agent. This extension is designed to generate random test and example data for a number of development purposes, by calling publicly available APIs.
+## Demo
+
+This project serves to test the capabilities of Copilot Extensions.
+
+Testing demonstrates that Copilot can invoke multiple, distinct skillsets within a single response, rather than being limited to a single skill per query.
+
+![image](./static/chatting.png)
+
+## Copilot Skillset Settings
+
+**Name:** run_select_query
+
+**Inference description:**
+
+```plaintext
+The function accepts a JSON input with a `table_name` parameter, validates it, and executes a `SELECT *` query on the specified table. It returns the results as a JSON array of rows, with each row represented as a key-value map.
+```
+
+**URL:** https://{your-ngrok-domain}/run-select-query
+
+**Parameters:** 
+```json
+{
+   "type": "object",
+   "properties": {
+      "table_name": {
+         "type": "string",
+         "description": "The name of the table to query. Must be a valid table name containing only alphanumeric characters and underscores."
+      }
+   },
+   "required": ["table_name"],
+   "additionalProperties": false
+}
+```
+---
+**Name:** get_table_ddl
+
+**Inference description:** 
+```plaintext
+This handler receives a JSON input with a table_name. It validates the table_name for security and retrieves the Data Definition Language (DDL) of the specified table from the database. The handler then returns the DDL as a JSON object with the key "ddl".
+```
+
+**URL:** https://{your-ngrok-domain}/get-table-ddl
+
+**Parameters:**
+```json
+{
+   "type": "object",
+   "properties": {
+      "table_name": {
+         "type": "string",
+         "description": "The name of the table to get it's DDL. Must be a valid table name containing only alphanumeric characters and underscores."
+      }
+   },
+   "required": ["table_name"],
+   "additionalProperties": false
+}
+```
+## Copilot Extension Explanation
 
 ### Architectural Model
 - **Skillsets**: Define up to 5 API endpoints that Copilot can call directly. Copilot handles all AI interactions, prompt engineering, and response formatting.
@@ -27,108 +83,3 @@ Use agents instead if you need:
 - Specific LLM model control (using LLMs that aren't provided by the Copilot API)
 - Custom prompt crafting
 - Advanced state management
-
-## Example Implementation
-
-This extension showcases the skillset approach by providing three simple endpoints that generate random development data:
-- Random commit messages
-- Lorem ipsum text generation
-- Random user data
-
-## Getting Started
-1. Clone the repository: 
-
-```
-git clone git@github.com:copilot-extensions/skillset-example.git
-cd skillset-example
-```
-
-2. Install dependencies:
-
-```
-go mod tidy
-```
-
-## Usage
-
-1. Start up ngrok with the port provided:
-
-```
-ngrok http http://localhost:8080
-```
-
-2. Set the environment variables (use the ngrok generated url for the `FDQN`)
-3. Run the application:
-
-```
-go run .
-```
-
-## Accessing the Extension in Chat:
-
-1. In the `Copilot` tab of your Application settings (`https://github.com/settings/apps/<app_name>/agent`)
-- Set the app type to "Skillset"
-- Specify the following skills
-```
-Name: random_commit_message
-Inference description: Generates a random commit message
-URL: https://<your ngrok domain>/random-commit-message
-Parameters: { "type": "object" }
-Return type: String
----
-Name: random_lorem_ipsum 
-Inference description: Generates a random Lorem Ipsum text.  Responses should have html tags present.
-URL: https://<your ngrok domain>/random-lorem-ipsum
-Parameters: 
-{
-   "type": "object",
-   "properties": {
-      "number_of_paragraphs": {
-         "type": "number",
-         "description": "The number of paragraphs to be generated.  Must be between 1 and 10 inclusive"
-      },
-      "paragraph_length": {
-         "type": "string",
-         "description": "The length of each paragraph.  Must be one of \"short\", \"medium\", \"long\", or \"verylong\""
-      }
-   }
-}
-Return type: String
----
-Name: random_user
-Inference description: Generates data for a random user
-URL: https://<your ngrok domain>/random-user
-Parameters: { "type": "object" }
-Return type: String
-```
-
-2. In the `General` tab of your application settings (`https://github.com/settings/apps/<app_name>`)
-- Set the `Callback URL` to anything (`https://github.com` works well for testing, in a real environment, this would be a URL you control)
-- Set the `Homepage URL` to anything as above
-3. Ensure your permissions are enabled in `Permissions & events` > 
-- `Account Permissions` > `Copilot Chat` > `Access: Read Only`
-4. Ensure you install your application at (`https://github.com/apps/<app_name>`)
-5. Now if you go to `https://github.com/copilot` you can `@` your skillset extension using the name of your app.
-
-## What can the bot do?
-
-Here's some example things:
-
-* `@skillset-example please create a random commit message`
-* `@skillset-example generate a lorem ipsum`
-* `@skillset-example generate a short lorem ipsum with 3 paragraphs`
-* `@skillset-example generate random user data`
-
-## Implementation
-
-This bot provides a passthrough to a couple of other APIs:
-
-* For commit messages, https://whatthecommit.com/
-* For Lorem Ipsum, https://loripsum.net/
-* For user data, https://randomuser.me/
-
-## Documentation
-- [Using Copilot Extensions](https://docs.github.com/en/copilot/using-github-copilot/using-extensions-to-integrate-external-tools-with-copilot-chat)
-- [About skillsets](https://docs.github.com/en/copilot/building-copilot-extensions/building-a-copilot-skillset-for-your-copilot-extension/about-copilot-skillsets)
-- [About building Copilot Extensions](https://docs.github.com/en/copilot/building-copilot-extensions/about-building-copilot-extensions)
-- [Set up process](https://docs.github.com/en/copilot/building-copilot-extensions/setting-up-copilot-extensions)
